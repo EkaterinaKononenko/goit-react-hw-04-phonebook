@@ -36,18 +36,18 @@ export default function App() {
   };
 
   const deleteContact = contactId => {
-    setContacts(prevContacts =>
-      prevContacts.filter(contact => contact.id !== contactId)
+    setContacts(prevState =>
+      prevState.filter(contact => contact.id !== contactId)
     );
   };
 
   const addContact = newContact => {
-    setContacts(prevContacts => {
-      if (prevContacts.find(contact => contact.name === newContact.name)) {
+    setContacts(prevState => {
+      if (prevState.find(contact => contact.name === newContact.name)) {
         alert(`${newContact.name} is already in contacts`);
-        return prevContacts;
+        return prevState;
       }
-      return [newContact, ...prevContacts];
+      return [newContact, ...prevState];
     });
   };
 
